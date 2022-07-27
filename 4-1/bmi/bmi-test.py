@@ -18,7 +18,7 @@ print(f"pre view:{wh.head(10)}")
 data_train, data_test, label_train, label_test = train_test_split(wh,label)
 
 # train data
-clf = svm.SVC()
+clf = svm.LinearSVC()
 clf.fit(data_train, label_train)
 
 # predict data

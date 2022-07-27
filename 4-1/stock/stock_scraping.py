@@ -36,8 +36,8 @@ prices = soup2.select('tr>td:nth-child(2)>span')
 #     print(price.string)
 
 ss_stock={'Date':[],'Price':[]}
-for p in range(max_page):
-    url = f"https://finance.naver.com/item/sise_day.naver?code={ticker}&page={page}"
+for p in range(1,max_page):
+    url2 = f"https://finance.naver.com/item/sise_day.naver?code={ticker}&page={p}"
     res2 = requests.get(url2, headers={
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0'})
     soup2 = BeautifulSoup(res2.text, 'html.parser')
@@ -50,3 +50,13 @@ for p in range(max_page):
 
 print(f"ss stock date :{ss_stock['Date']}")
 print(f"ss stock prices:{ss_stock['Price']}")
+stock_df=pd.DataFrame(ss_stock)
+stock_df.to_csv('ss_stock.csv')
+
+#환율 스크래핑 날짜, 환율
+
+#한국 은행 이자율: 날짜, 이자율
+
+
+# FED 이자율 스래핑 날짜, 이자율
+
