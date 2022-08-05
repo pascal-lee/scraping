@@ -9,13 +9,14 @@ mr = pd.read_csv("mushroom.csv", header=None)
 print(mr.head(10))
 data = []
 label = []
+attr_list = []
 
 for row_idx, row in mr.iterrows():
     label.append(row.loc[0])
     #print(f" row: {row.loc[0]}")
     #print(f" {row_idx},\t {row}")
+    exdata = []
     #버섯의 측징 기호를 리스트로 표현
-
 
     #22번 반복하면서 각각의  행으로 분할
     for col_idx, val in enumerate(row.loc[1:]):
